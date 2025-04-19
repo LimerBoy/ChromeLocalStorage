@@ -466,8 +466,8 @@ class ManifestFile:
     MANIFEST_FILENAME_PATTERN = "MANIFEST-([0-9A-F]{6})"
 
     def __init__(self, path: Path):
-        if match := match(ManifestFile.MANIFEST_FILENAME_PATTERN, path.name):
-            self.file_no = int(match.group(1))
+        if matched := match(ManifestFile.MANIFEST_FILENAME_PATTERN, path.name):
+            self.file_no = int(matched.group(1))
         else:
             raise ValueError("Invalid name for Manifest")
 
